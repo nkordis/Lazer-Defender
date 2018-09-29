@@ -6,7 +6,13 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     [SerializeField] float moveSpeed = 10f;
-    [NonSerialized] float padding = 1f;
+    [SerializeField] float padding = 1f;
+    [SerializeField] GameObject laserPrefab;
+    [SerializeField] float laserSpeed = 10f;
+    [SerializeField] float lazerWaitingTime = 0.1f;
+
+    Coroutine fireCoroutine;
+
     float minX;
     float maxX;
     float minY;
@@ -17,20 +23,42 @@ public class Player : MonoBehaviour {
         setUpMoveBoundaries();
 	}
 
-    private void setUpMoveBoundaries()
-    {
-        Camera gameCamera = Camera.main;
-        minX = gameCamera.ViewportToWorldPoint(new Vector3(0,0,0)).x + padding;
-        maxX = gameCamera.ViewportToWorldPoint(new Vector3(1,0,0)).x - padding;
-        minY = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
-        maxY = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
-    }
+   
 
     // Update is called once per frame
     void Update () {
         Move();
+        Fire(); 
 	}
 
+    private void Fire()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+           fireCoroutine = StartCoroutine("FireContinuously");
+        }
+        if(Input.GetButtonUp("Fire1"))
+        {
+            StopCoroutine(fireCoroutine);
+        }
+    }
+
+    IEnumerator FireContinuously()
+    {
+        while (true)
+        {
+            GameObject laser = Instantiate(laserPrefab,
+                transform.position,
+                Quaternion.identity)
+                as GameObject;
+
+            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, laserSpeed);
+            yield return new WaitForSeconds(lazerWaitingTime);
+        }
+        
+    }
+
+    
     private void Move()
     {
         var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
@@ -39,5 +67,14 @@ public class Player : MonoBehaviour {
         var playerXPos = Mathf.Clamp(transform.position.x + deltaX, minX, maxX);
         var playerYPos = Mathf.Clamp(transform.position.y + deltaY, minY, maxY);
         transform.position = new Vector2(playerXPos, playerYPos );
+    }
+
+    private void setUpMoveBoundaries()
+    {
+        Camera gameCamera = Camera.main;
+        minX = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + padding;
+        maxX = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - padding;
+        minY = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
+        maxY = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
     }
 }
