@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Enemy pathing is regulated by WaveConfig.cs
+ * This is from where the enemy gets its waypoints.
+ */
 public class EnemyPathing : MonoBehaviour {
 
-    [SerializeField] List<Transform> waypoints;
-    [SerializeField] float moveSpeed = 2f;
+    WaveConfig waveConfig;
+    List<Transform> waypoints;
     int currentWaypoint = 0;
 
 	
 	void Start () {
+        waypoints = waveConfig.GetWayPoints();
         transform.position = waypoints[currentWaypoint].transform.position;
 	}
 	
@@ -19,12 +23,20 @@ public class EnemyPathing : MonoBehaviour {
         Move();
     }
 
+    /* It is called by the EnemySpawner just after the instantiation
+     * of an Enemy GameObject;
+     */
+    public void SetWaveConfig(WaveConfig waveConfig)
+    {
+        this.waveConfig = waveConfig;
+    }
+
     private void Move()
     {
         if (currentWaypoint <= waypoints.Count - 1)
         {
             var targetPosition = waypoints[currentWaypoint].position;
-            var movementThisFrame = moveSpeed * Time.deltaTime;
+            var movementThisFrame = waveConfig.GetMoveSpeed() * Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, movementThisFrame);
 
             if (transform.position == targetPosition)
