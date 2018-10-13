@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4748229293337516}
   - component: {fileID: 212044464871440476}
   - component: {fileID: 114259467058042808}
+  - component: {fileID: 60759590395812404}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -41,6 +42,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &60759590395812404
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1814494297648946}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.99, y: 0.75}
+    newSize: {x: 0.99, y: 0.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.47854573, y: 0.055892467}
+      - {x: 0.35926965, y: -0.042508125}
+      - {x: 0.26183662, y: 0.012856483}
+      - {x: 0.10525489, y: 0.09678459}
+      - {x: 0.07905571, y: 0.36512756}
+      - {x: -0.07209159, y: 0.3651271}
+      - {x: -0.11214119, y: 0.09555578}
+      - {x: -0.36990985, y: -0.039909363}
+      - {x: -0.48844314, y: 0.068772316}
+      - {x: -0.4686733, y: -0.15943813}
+      - {x: -0.44803587, y: -0.2586727}
+      - {x: -0.4055146, y: -0.20814896}
+      - {x: -0.27841833, y: -0.24886417}
+      - {x: -0.18115051, y: -0.26420498}
+      - {x: -0.12854582, y: -0.2522192}
+      - {x: -0.06209161, y: -0.37829018}
+      - {x: 0.065509915, y: -0.3815813}
+      - {x: 0.13658857, y: -0.26462555}
+      - {x: 0.25170916, y: -0.2586727}
+      - {x: 0.42085147, y: -0.20073986}
+      - {x: 0.44512752, y: -0.25183773}
+      - {x: 0.45880076, y: -0.24841785}
 --- !u!114 &114259467058042808
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,9 +101,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   padding: 1
+  health: 200
   laserPrefab: {fileID: 1613143037508458, guid: abb0c81bd7f74ab419746d8b7868e5b0,
     type: 2}
   laserSpeed: 20
+  lazerWaitingTime: 0.1
 --- !u!212 &212044464871440476
 SpriteRenderer:
   m_ObjectHideFlags: 1
