@@ -8,8 +8,8 @@ public class Enemy : MonoBehaviour {
 
     [SerializeField] float health = 100f;
     [SerializeField] float shotCounter;
-    [SerializeField] float minTimeBetweenShots = 00.2f;
-    [SerializeField] float maxTimeBetweenShots = 3f;
+    [SerializeField] float minTimeBetweenShots = 02.2f;
+    [SerializeField] float maxTimeBetweenShots = 6f;
     [SerializeField] GameObject laserPrefab;
     [SerializeField] float laserSpeed = 10f;
    
@@ -49,6 +49,7 @@ public class Enemy : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D other)
     {
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+        if (!damageDealer) { return; }
         ProcessHit(other, damageDealer);
 
     }
@@ -56,6 +57,7 @@ public class Enemy : MonoBehaviour {
     private void ProcessHit(Collider2D other, DamageDealer damageDealer)
     {
         health -= damageDealer.GetDamage();
+        damageDealer.Hit();
         if (health <= 0)
         {
             Destroy(gameObject);
