@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour {
     [SerializeField] float maxTimeBetweenShots = 6f;
     [SerializeField] GameObject laserPrefab;
     [SerializeField] float laserSpeed = 10f;
+    [SerializeField] GameObject particlePrefab;
    
 
     // Use this for initialization
@@ -60,8 +61,17 @@ public class Enemy : MonoBehaviour {
         damageDealer.Hit();
         if (health <= 0)
         {
-            Destroy(gameObject);
             Destroy(other.gameObject);
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+        GameObject particle = Instantiate(particlePrefab,
+            transform.position,
+            Quaternion.identity) as GameObject;
+        Destroy(particle, 1f);
     }
 }

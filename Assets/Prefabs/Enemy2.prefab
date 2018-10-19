@@ -87,6 +87,8 @@ MonoBehaviour:
   laserPrefab: {fileID: 1611137021183060, guid: fdfa0298ae2bc8c42aed82b1d6653427,
     type: 2}
   laserSpeed: 10
+  particlePrefab: {fileID: 1328760270511756, guid: a07b715108bf6ee4c89764df254f4fc0,
+    type: 2}
 --- !u!212 &212295162819425616
 SpriteRenderer:
   m_ObjectHideFlags: 1
