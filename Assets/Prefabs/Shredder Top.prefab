@@ -9,31 +9,31 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1657449437154748}
+  m_RootGameObject: {fileID: 1423662698268678}
   m_IsPrefabAsset: 1
---- !u!1 &1657449437154748
+--- !u!1 &1423662698268678
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4534810167002966}
-  - component: {fileID: 61631164956381490}
-  - component: {fileID: 114680392626655248}
-  m_Layer: 0
-  m_Name: Shredder
+  - component: {fileID: 4805278192696804}
+  - component: {fileID: 61060267372316456}
+  - component: {fileID: 114812897828037684}
+  m_Layer: 1
+  m_Name: Shredder Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4534810167002966
+--- !u!4 &4805278192696804
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1657449437154748}
+  m_GameObject: {fileID: 1423662698268678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -41,12 +41,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61631164956381490
+--- !u!61 &61060267372316456
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1657449437154748}
+  m_GameObject: {fileID: 1423662698268678}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -66,12 +66,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 15, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114680392626655248
+--- !u!114 &114812897828037684
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1657449437154748}
+  m_GameObject: {fileID: 1423662698268678}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1751029e6c4e3a4a9afb296ef4c71cb, type: 3}

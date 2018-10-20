@@ -13,7 +13,11 @@ public class Enemy : MonoBehaviour {
     [SerializeField] GameObject laserPrefab;
     [SerializeField] float laserSpeed = 10f;
     [SerializeField] GameObject particlePrefab;
-   
+    [SerializeField] AudioClip enemyDeathSound;
+    [SerializeField] [Range(0,1)]float enemyDeathSoundVolume = 1f;
+    [SerializeField] AudioClip laserSound;
+    [SerializeField] [Range(0, 1)] float laserSoundVolume = 0.1f;
+
 
     // Use this for initialization
     void Start () {
@@ -44,6 +48,7 @@ public class Enemy : MonoBehaviour {
                                         Quaternion.identity)
                             as GameObject;
         laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -laserSpeed);
+        AudioSource.PlayClipAtPoint(laserSound, Camera.main.transform.position, laserSoundVolume);
 
     }
 
@@ -73,5 +78,6 @@ public class Enemy : MonoBehaviour {
             transform.position,
             Quaternion.identity) as GameObject;
         Destroy(particle, 1f);
+        AudioSource.PlayClipAtPoint(enemyDeathSound, Camera.main.transform.position, enemyDeathSoundVolume);
     }
 }

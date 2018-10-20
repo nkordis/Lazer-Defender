@@ -89,6 +89,10 @@ MonoBehaviour:
   laserSpeed: 10
   particlePrefab: {fileID: 1328760270511756, guid: a07b715108bf6ee4c89764df254f4fc0,
     type: 2}
+  enemyDeathSound: {fileID: 8300000, guid: 22648936374dc344f927990e841b251a, type: 3}
+  enemyDeathSoundVolume: 1
+  laserSound: {fileID: 8300000, guid: 87369c13bc1a30e42a29450d620d86fe, type: 3}
+  laserSoundVolume: 0.1
 --- !u!212 &212429896293542688
 SpriteRenderer:
   m_ObjectHideFlags: 1
