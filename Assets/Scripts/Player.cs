@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
     [SerializeField] float health = 200f;
     [SerializeField] AudioClip playerDeathSound;
     [SerializeField] [Range(0, 1)] float playerDeathSoundVolume = 1f;
+    [SerializeField] GameObject particlePrefab;
 
     [Header("Laser")]
     [SerializeField] GameObject laserPrefab;
@@ -89,6 +90,10 @@ public class Player : MonoBehaviour {
     private void Die()
     {
         Destroy(gameObject);
+        GameObject particle = Instantiate(particlePrefab,
+           transform.position,
+           Quaternion.identity) as GameObject;
+        Destroy(particle, 1f);
         AudioSource.PlayClipAtPoint(playerDeathSound, Camera.main.transform.position, playerDeathSoundVolume);
         FindObjectOfType<Level>().LoadGameOver();
     }

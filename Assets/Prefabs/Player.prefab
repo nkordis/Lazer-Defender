@@ -102,8 +102,10 @@ MonoBehaviour:
   moveSpeed: 10
   padding: 1
   health: 400
-  playerDeathSound: {fileID: 8300000, guid: 22648936374dc344f927990e841b251a, type: 3}
+  playerDeathSound: {fileID: 8300000, guid: 39c42215277b0cd49a0740b33eec673c, type: 3}
   playerDeathSoundVolume: 1
+  particlePrefab: {fileID: 1328760270511756, guid: a07b715108bf6ee4c89764df254f4fc0,
+    type: 2}
   laserPrefab: {fileID: 1613143037508458, guid: abb0c81bd7f74ab419746d8b7868e5b0,
     type: 2}
   laserSpeed: 20
