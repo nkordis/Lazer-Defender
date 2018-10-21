@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   padding: 1
-  health: 20000
+  health: 400
   playerDeathSound: {fileID: 8300000, guid: 22648936374dc344f927990e841b251a, type: 3}
   playerDeathSoundVolume: 1
   laserPrefab: {fileID: 1613143037508458, guid: abb0c81bd7f74ab419746d8b7868e5b0,
